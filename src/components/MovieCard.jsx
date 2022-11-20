@@ -36,7 +36,7 @@ export default function MovieCard({res, isPlaying}){
                 <img src={`https://www.themoviedb.org/t/p/w440_and_h660_face${res.poster_path}`} alt={res.title} width="150px" style={{borderRadius: "6px"}}/>
                 {res.title.length >= 40 ? (
                     <Tooltip placement='bottom' title={res.title} style={{borderRadius: "5px"}}>
-                        <Typography style={{marginBottom: 0, paddingBottom: 0, color: 'white'}}><b>{res.title.substring(0, 40).concat("...")}</b></Typography>
+                        <Typography style={{marginBottom: 0, paddingBottom: 0, color: 'white'}}><b>{res.title.substring(0, 30).concat("...")}</b></Typography>
                     </Tooltip>
                 ) : ( 
                     <Typography style={{marginBottom: 0, paddingBottom: 0, color: "white"}}><b>{res.title}</b></Typography>
@@ -44,7 +44,7 @@ export default function MovieCard({res, isPlaying}){
                 {isPlaying ? (
                     <Typography style={{color: "white"}}><StarFilled style={{display: "inline", color:'yellow'}}/> {res.vote_average}</Typography>
                 ) : (
-                    <Typography style={{color: "white"}}> {res.release_date.substring(0,4)}</Typography>
+                    <Typography style={{color: "white"}}> {`(${res.release_date.substring(0,4)})`}</Typography>
                 )}
                 
             </div>    
